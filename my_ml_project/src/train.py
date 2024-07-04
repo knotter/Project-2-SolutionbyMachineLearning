@@ -17,4 +17,5 @@ hyperparameters = [0.001, 0.01, 0.1, 1, 10, 100, 1000]
 for h in hyperparameters:
     model_dump_path_base = model_dump_path_base + str(h) + ".pkl"
     trainer.train_SVM(h, X, y)
+    #trainer.train_RF(h, X, y)
     trainer.dump_model(model_dump_path_base)

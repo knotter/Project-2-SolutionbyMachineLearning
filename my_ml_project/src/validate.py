@@ -4,7 +4,7 @@ project_root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root_path)   
 
 import pickle
-import src.my_library.Validator as Validator
+import my_library.Validator as Validator
 
 def find_best_model(models_path, data_path):
     validator = Validator.Validator()
@@ -15,6 +15,7 @@ def find_best_model(models_path, data_path):
 
     for model_file in os.listdir(models_path):
         model_file_path = os.path.join(models_path, model_file)
+        print(model_file_path)
         validator.load_model(model_file_path)
         accuracy, precision, recall = validator.evaluate_model()
         print(f"Evaluating {model_file}:")
@@ -34,7 +35,7 @@ def find_best_model(models_path, data_path):
         print(f"The best model is saved as 'best_model.pkl' with accuracy: {best_accuracy}")
 
 models_path = os.path.join(project_root_path, "models") 
-data_path = os.path.join(project_root_path, "data", "validation_preprocessed.pkl") 
+data_path = os.path.join(project_root_path, "data", "validation_preprocessed.txt")
 #data_path = os.path.join(project_root_path, "data", "train_preprocessed.pkl") 
 
 find_best_model(models_path, data_path)
