@@ -1,5 +1,6 @@
 import sklearn.svm as SVM
 import sklearn.ensemble as Ensemble
+from sklearn.model_selection import GridSearchCV
 import pickle
 import numpy
 
@@ -39,7 +40,8 @@ class Trainer:
             hyperparameter(float): 正則化パラメータの値
             X (numpy.ndarray): 前処理済みの訓練データ
             y (numpy.ndarray): ラベルデータ
-        """     
+        """
+        print(hyperparameter)
         self.model = SVM.SVC(C=hyperparameter)
         self.model.fit(X,y)
 
@@ -50,6 +52,12 @@ class Trainer:
             hyperparameter(float): 最大深さの値
             X (numpy.ndarray): 前処理済みの訓練データ
             y (numpy.ndarray): ラベルデータ
-        """     
+        """
+        print(X, y)
         self.model = Ensemble.RandomForestClassifier(max_depth=hyperparameter)
         self.model.fit(X,y)
+
+    def train_Grid(self, param_grid, X, y):
+
+        self.model = GridSearchCV(SVM.SVC(), param_grid, refit = True, verbose = 3)
+        self.model.fit(X, y)

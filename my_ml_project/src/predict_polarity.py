@@ -3,8 +3,8 @@ import pickle
 import my_library.load_input_data as input_loader
 
 project_root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-model_path = os.path.join(project_root_path, "models", "best_model.pkl")
-preprocessed_data_path = os.path.join(project_root_path, "data", "data_preprocessed.pkl")
+model_path = os.path.join(project_root_path, "models_SVM_r", "best_model.pkl")
+preprocessed_data_path = os.path.join(project_root_path, "Preprocessed_data", "data_preprocessed.pkl")
 data_path = os.path.join(project_root_path, "data", "data.txt")
 
 with open(model_path, "rb") as f:

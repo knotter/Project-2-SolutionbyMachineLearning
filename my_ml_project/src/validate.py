@@ -34,8 +34,8 @@ def find_best_model(models_path, data_path):
             pickle.dump(validator.model, f)
         print(f"The best model is saved as 'best_model.pkl' with accuracy: {best_accuracy}")
 
-models_path = os.path.join(project_root_path, "models") 
-data_path = os.path.join(project_root_path, "data", "validation_preprocessed.txt")
+models_path = os.path.join(project_root_path, "models_SVM_r_3")
+data_path = os.path.join(project_root_path, "Preprocessed_data_3", "validation_preprocessed.pkl")
 #data_path = os.path.join(project_root_path, "data", "train_preprocessed.pkl") 
 
 find_best_model(models_path, data_path)

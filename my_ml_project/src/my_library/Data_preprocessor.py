@@ -36,7 +36,8 @@ class DataPreprocessor:
         for i in range(len(self.sentence_arrays)):
             print(i)
             sentence = self.sentence_arrays[i][0]  # Sentenceの列を取得
-            count_vector = counter.count_and_vectorize(self.dictionary, sentence)
+            sentence_split = sentence.split("、")[len(sentence.split("、"))-1]
+            count_vector = counter.count_and_vectorize(self.dictionary, sentence_split)
             X_list.append(count_vector)
             if self.sentence_arrays[i][4] == "0":  # Writer_Joyの列が"0"なら負例とする 
                 y_list.append(-1)

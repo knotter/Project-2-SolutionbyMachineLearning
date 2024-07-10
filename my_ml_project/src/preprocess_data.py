@@ -9,12 +9,17 @@ import my_library.load_dictionary as dictionary_loader
 from my_library.Data_preprocessor import DataPreprocessor
 
 data_path = input("Enter the path for the data file: ")
-dictionary_path = input("Enter the path for the dictionary file: ")
+dictionary1_path = input("Enter the path for the dictionary_1 file: ")
+dictionary2_path = input("Enter the path for the dictionary_2 file: ")
 preprocessed_data_path = input("Enter the path to save the preprocessed data: ")
 
 labeled = input("Enter if the data is labeled (Y/N):")
 
-dictionary = dictionary_loader.load(dictionary_path)
+dictionary1 = dictionary_loader.load_1(dictionary1_path)
+dictionary2 = dictionary_loader.load_2(dictionary2_path)
+
+dictionary = dictionary1 + dictionary2
+
 if labeled == "Y":
     sentence_arrays = input_loader.load(data_path)
     data_preprocessor = DataPreprocessor(sentence_arrays[1:], dictionary)
